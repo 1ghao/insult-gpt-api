@@ -31,9 +31,11 @@ app.post("/api/chat", async (req, res) => {
 });
 
 const httpsOptions = {
-  key: fs.readFileSync("/path/to/privkey.pem"),
-  cert: fs.readFileSync("/path/to/cert.pem"),
-  ca: fs.readFileSync("/path/to/chain.pem"),
+  key: fs.readFileSync(
+    "/etc/letsencrypt/live/serverdewan.ddns.net/privkey.pem"
+  ),
+  cert: fs.readFileSync("/etc/letsencrypt/live/serverdewan.ddns.net/cert.pem"),
+  ca: fs.readFileSync("/etc/letsencrypt/live/serverdewan.ddns.net/chain.pem"),
 };
 
 https.createServer(httpsOptions, app).listen(port, () => {
